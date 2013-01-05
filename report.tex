@@ -13,6 +13,8 @@
 \begin{document}
 \maketitle
 \newpage
+\tableofcontents
+\newpage
 
 \section{Introduction}
 % 2000 Students, 50 Academic Staff, 50 Graduate/research, 10 Admin
@@ -20,17 +22,23 @@
 \section{Server Room}
 \subsection{Physical Requirements}
 % Ceiling/floor height
-% Rack space
+
+There will be 3 42U server racks in the centre of the room allowing full access
+to both the front and the back of the cabinet. It is imperative that these be
+grounded correctly so that any electrical anomalies do not present a threat to
+human health. These will provide adequate space for all the equipment specified
+in this document in addition to space for future requirements.
 
 \subsection{Service Provision Requirements}
-% Power
+% Power UPS
 % Network
 
 \subsection{Other needs}
-% Cooling
+Server cooling will be provided by 3 Airedale OnRak units. These will dissipate
+the heat generated and will fit into the back of each of the server racks.
 
 The server room must be fitted with a fire suppression system. This should use a
-gasseos suppression agent such as CO\textsubscript{2} which will not damage the
+gasseous suppression agent such as CO\textsubscript{2} which will not damage the
 sensitive equipment. This \emph{will}, however require more space to be made
 available to store the suppression agent.
 
@@ -73,7 +81,7 @@ case all software should pass through the audit procedures outlined below (see
 \section{Security}
 \label{sec:security}
 % Software audit
-% Regular maintainence
+% Regular maintenance
 % Server room access
 
 \section{Naming \& Directory Services}
@@ -83,12 +91,18 @@ case all software should pass through the audit procedures outlined below (see
 
 \section{Ongoing Management}
 % Logs
-% Maintainence schedule
+% Maintenance schedule
 % Backups
 % Training (rehearsal of disaster plans)
 
 \section{Summary}
 
-\section{Bibliography}
+\begin{thebibliography}{1}
+
+\bibitem{rack} {\em http://www.iblparts.co.uk/forsale/5B933FE8.html}
+\bibitem{fire} {\em
+  http://www.techrepublic.com/blog/security/the-mystical-world-of-data-center-fire-suppression/4113}
+
+\end{thebibliography}
 
 \end{document}
