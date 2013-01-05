@@ -76,13 +76,57 @@ It is possible that the hardware outlined in this and future documents is
 incompatible or unfit for purpose. If this is the case, new devices will be
 specified and decided upon by the steering group.
 
+\subsubsection{Overrunning of Budget}
+While every effort has been and will continue to be made to ensure that all
+financial forecasts are accurate, unforseen expenses my be incurred. As such, it
+is recommended that a contingency of 10\% of the overall project cost be
+included during planning which may be used to mitigate the risks of financial
+over-spend.
+
+\subsubsection{Late Delivery of Project Goals}
+Each phase of the project should have an established goal and time frame within
+which to be achieved. This should be closely monitored and regulated by the
+steering group and \emph{any} concerns should be raised as soon as possible so
+that mitigating action may be decided upon and undertaken by all relevant
+parties.
+
+\subsubsection{Failure to Deliver by External Contractors}
+Any phases of the project requiring external contractors are subject to further
+risks as a result of the work being undertaken (e.g. work not being finished on
+time or to correct specification). Therefore, any such phase should be given
+extra attention by the steering group and any specifically identifiable risks
+should be pre-emptively mitigated as far as is possible.
+
+\subsubsection{Incorrect/Late Delivery of Hardware}
+It is possible that hardware be delivered late or even damaged. Records of
+\emph{all} purchases and deliveries must be kept so that any
+disputes/discontinuity may be dealt with as swiftly as possible.
+
 \section{Hardware}
-% Application Server(s)
-% NAS (HP X9000)
-% Firewall
-% Network switches
-% Print/mail server
-% Second site switch
+
+\subsection{Server Hardware}
+
+There will be 2 HP ProLiant DL320 G6 application servers. One of them is to be
+kept as a back-up/testing server.
+
+There will also be 6 Dell PowerEdge R320 rack servers which will provide the
+firewall, E-mail, print and web services. One of these will be the test web
+server and one will be a back-up/spare.
+
+\subsection{Network Hardware}
+
+The server room itself will require 2 ethernet switches such as those
+provided by Cisco, one to provide connectivity to the servers (and any
+peripheral Ethernet devices) and one to connect to the rest of the campus.
+
+Further switches will be required to access areas further away from the server
+room. The location and quantity of these is to be specified by the steering
+group.
+
+\subsection{Storage Hardware}
+% TODO
+
+% Second site?
 
 \section{Software}
 \subsection{IT \& Services Software}
@@ -91,7 +135,7 @@ believe this to be one of the most well-established and supported server OS
 available (and it's free).
 
 \subsubsection{Application Servers}
-The application servers will be used to provide software as a service to the
+The application server will be used to provide software as a service to the
 users. The following list is expected to grow as a result of further
 requirements gathering activities outlined in section \ref{sec:projman}
 
