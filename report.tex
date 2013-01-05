@@ -30,7 +30,13 @@ human health. These will provide adequate space for all the equipment specified
 in this document in addition to space for future requirements.
 
 \subsection{Service Provision Requirements}
-% Power UPS
+Power will be provided to the server room by way of a big grey box on the wall.
+% TODO
+This will be distributed to the hardware by way of rack-attached power strips
+with monitoring capabilities (such as those provided by Geist).
+
+This power will be backed-up by an Uninterruptable Power Supply. % TODO
+
 % Network
 
 \subsection{Other needs}
@@ -48,10 +54,11 @@ enable them to work without access to the server room). Access will also be
 monitored through the key card access system (see \ref{sec:security}).
 
 \section{Project Management}
+\label{sec:projman}
 
 \section{Hardware}
 % Application Server(s)
-% NAS
+% NAS (HP X9000)
 % Firewall
 % Network switches
 % Print/mail server
@@ -59,12 +66,51 @@ monitored through the key card access system (see \ref{sec:security}).
 
 \section{Software}
 \subsection{IT \& Services Software}
-All of the servers will be installed with the most current version of Debian. I
+All of the servers (with the exception of the firewall and network storage covered below) will be installed with the most current version of Debian. I
 believe this to be one of the most well-established and supported server OS
 available (and it's free).
 
-% Firewall
-% E-Mail
+\subsubsection{Application Servers}
+The application servers will be used to provide software as a service to the
+users. The following list is expected to grow as a result of further
+requirements gathering activities outlined in section \ref{sec:projman}
+
+Intacct Financial and Management Accounting software will be installed to
+provide payroll, PoS, budgeting and accounting services to administrative staff
+and public cafe/bar areas.
+
+A Learning Management System will be provided by Blackboard. Blackboard has a
+large market share and industry backing \cite{bb} and although open-source
+alternatives were considered, none provide the range of features and support
+available from Blackboard.
+
+\subsubsection{Firewall}
+One of the servers will operate as a dedicated firewall and gateway. It will be
+installed with Smoothwall, a dedicated firewall distribution of Linux. It is
+open-source and fairly well supported through its online documentation and
+manuals.
+
+\subsubsection{E-mail}
+One of the servers will function as a dedicated e-mail server. It will be
+installed with Exim as the Mail Transfer Agent and RoundCube as the webmail
+front-end. Exim has been growing in popularity over recent years and is well
+supported on Debian platforms\cite{exim}.
+
+\subsubsection{Printing}
+Print services will be provided using the CUPS set of standard print spooling
+tools on another, lower powered, Debian machine.
+
+\subsubsection{Network Storage}
+The network storage specified comes with its own specialised OS and software.
+There is a client application available to access the storage but since the
+device uses standard network file storage protocols, this should not be
+necessary (and is not available for Debian systems at the time of writing).
+
+\subsubsection{Webserver}
+One server will be given over to providing both the external website and an
+internal intranet. Nginx will be installed as the webserver. Nginx has been
+growing in popularity since its inception \cite{nginx}. It is open-source and considerable
+less memory-intensive than Apache.
 
 \subsection{User Software}
 All student and staff workstations will be installed with Windows 7. I Believe
@@ -76,13 +122,14 @@ installed in order to run legacy applications critical to their work. In this
 case all software should pass through the audit procedures outlined below (see
 \ref{sec:security}) before it is installed.
 
-% Office package (LibreOffice)
+General office tools (word processor, spreadsheets, presentations etc.) will be
+provided by LibreOffice. This is not too dissimilar from commercial offerings
+and does not require licenses to be purchased.
 
 \section{Security}
 \label{sec:security}
 % Software audit
 % Regular maintenance
-% Server room access
 
 \section{Naming \& Directory Services}
 
@@ -102,6 +149,10 @@ case all software should pass through the audit procedures outlined below (see
 \bibitem{rack} {\em http://www.iblparts.co.uk/forsale/5B933FE8.html}
 \bibitem{fire} {\em
   http://www.techrepublic.com/blog/security/the-mystical-world-of-data-center-fire-suppression/4113}
+\bibitem{bb} {\em http://en.wikipedia.org/wiki/Learning\_management\_system}
+\bibitem{smoothwall} {\em http://www.smoothwall.org/}
+\bibitem{exim} {\em http://www.securityspace.com/s\_survey/data/man.201007/mxsurvey.html}
+\bibitem{nginx} {\em http://trends.builtwith.com/Web-Server/nginx}
 
 \end{thebibliography}
 
