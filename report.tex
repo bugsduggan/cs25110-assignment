@@ -160,6 +160,15 @@ pieces of hardware to be acquired. In this case, a request should be made to the
 ICT department for evaluation and processing but these requests are left
 entirely at the discretion of the Head of ICT.
 
+It is expected that both campuses will require a number of peripheral devices
+(printers, scanners etc.) the location and specification of which will be
+decided upon by the steering group. Consideration should be made, however to
+ensure that they remain compatible with the rest of the system.
+
+It is assumed that telephony requirements are being provided by a separate part
+of the design specification therefore no discussion of such systems will be made
+in this document.
+
 \section{Software}
 \subsection{IT \& Services Software}
 All of the servers (with the exception of the firewall and network storage
@@ -194,14 +203,16 @@ front-end. Exim has been growing in popularity over recent years and is well
 supported on Debian platforms\cite{exim}.
 
 \subsubsection{Printing}
-Print services will be provided using the CUPS set of standard print spooling
-tools on another, lower powered, Debian machine.
+Print services will be handled by CUPS. It is likely that other utilities will
+be required to be installed as part of this system but this will depend on which
+printers are eventually selected and so the final decision will be in the hands
+of the steering group.
 
-\subsubsection{Network Storage}
-The network storage specified comes with its own specialised OS and software.
-There is a client application available to access the storage but since the
-device uses standard network file storage protocols, this should not be
-necessary (and is not available for Debian systems at the time of writing).
+\subsubsection{File Storage}
+The disks will be presented on the network using the CIFS protocol by means of
+Samba and cross-site backup policy will be enforced using rsync and cron jobs.
+Samba is very well established and well documented software which is frequently
+used to provide Windows and Linux home directories across the network.
 
 \subsubsection{Naming \& Directory}
 See \ref{sec:nandd}
@@ -377,6 +388,7 @@ documents) in the server room (preferably in a fire-proof container). This
 ensures, should problems occur, that they can be traced back to their origin and
 fixed much quicker and with less risk to service.
 
+\subsection{Disaster Recovery}
 Furthermore, the steering group should compile a disaster recovery strategy to
 be maintained by the ICT committee. This will include strategies for recovery in
 the event of critical system infrastructure failure. For example, if the
