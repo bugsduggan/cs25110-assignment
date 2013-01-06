@@ -103,7 +103,6 @@ disputes/discontinuity may be dealt with as swiftly as possible.
 
 \section{Hardware}
 \subsection{Main Campus Server Room}
-% TODO hard disks
 The main campus server room will contain one network switch to handle external
 traffic (internet and inter-site) and two further switches to distribute network
 connectivity inside the server room and to the rest of the building.
@@ -134,14 +133,22 @@ tasks). Furthermore, provision should be made for a monitor and keyboard to be
 attached to any of the servers in the racks for easy administration. Rack
 mountable KVM consoles are available and may be specified by the steering group.
 
+The server room will also contain a RAID disk array with at least 6TB of useable
+space. This will be used to provide user's home directories and central backups
+of University documents, databases etc. Again, the exact make and model will be
+left to the steering group but it is recommended that these \emph{not} be
+solid-state drives as these tend to fail with very little warning (even with
+proper backups in place, the author feels that people administering the system
+like to know when critical pieces of infrastructure are about to fail).
+
 \subsection{Second Campus Hardware}
-% TODO hard disks
 The second campus will house one further 42U rack. Attention should be paid to
 its placement with regard to cooling and fire safety. It should be located out
 of the way but not inaccessible. This rack will contain a backup application
 server, a secondary storage control server, a secondary DNS server and a
 backup/testing web server. In addition to these, it will require at least one
-network switch to connect to the internet and the main campus server room.
+network switch to connect to the internet and the main campus server room. There
+will also be a RAID disk array identical to that on the main campus.
 
 \subsection{User-facing Hardware}
 Users on either campus should be able to connect to the network wirelessly. This
