@@ -258,16 +258,71 @@ recommended that lockable (and preferable fire-proof) boxes be purchased and
 located out of sight (though not inaccessible).
 
 \section{Naming \& Directory Services}
+One of the server at each site will be used exclusively as the authoritative name server for
+the University's domain(s), the primary controller being located in the server
+room and the secondary server on the second site. Debian will be installed as the Operating System
+(this is mostly for consistency with the other servers, if the steering group
+can justify a different OS, it should be possible to switch with little
+adjustment). BIND (v9) will be used to provide DNS services across the network
+and MySQL is recommended as the database controller for the records being
+stored.
+
+In addition to this, LDAP will be used to provide directory services. This will
+also be used to store user data for all staff/student accounts (accounts which
+will be provided with a home directory on the main filestore). It should then be
+possible to use LDAP as the main authentication protocol across the network.
 
 \section{Business Continuity}
 % What are the critical functions?
 
 \section{Ongoing Management}
 \label{sec:manage}
-% Logs
-% Maintenance schedule
-% Backups
-% Training (rehearsal of disaster plans)
+It is recommended that in addition to a general ICT manager, the University also
+employ one or two system administrators and one ICT strategy adviser. These
+should meet on a regular basis with key staff in each department (that is people
+who understand what is required of the ICT systems within their own department).
+This regular meeting will allow current and future aspects of the system to be
+analysed and maintained without losing focus on the deliverable goals.
+
+In addition to this, a maintenance schedule should be drawn up consisting of the
+task to be accomplished, the time it should take place and the member of staff
+responsible. Regular maintenance tasks may include (but are not limited to)
+updating system software, checking hard disk integrity and replacing batteries
+in UPSs.
+
+Logs of all changes/additions to the critical infrastructure should be produced
+and kept up to date. These should be stored (along with other critical
+documents) in the server room (preferably in a fire-proof container). This
+ensures, should problems occur, that they can be traced back to their origin and
+fixed much quicker and with less risk to service.
+
+Furthermore, the steering group should compile a disaster recovery strategy to
+be maintained by the ICT committee. This will include strategies for recovery in
+the event of critical system infrastructure failure. For example, if the
+application server crashes, what is the procedure for switching to the back-up
+server, identifying the problem and reaching a solution. These disaster recovery
+strategies should be well understood by those members of the team who will be
+required to act upon it and as such it is recommended that these procedures be
+rehearsed at regular intervals (much the same way that a fire evacuation plan
+may be rehearsed).
+
+\subsection{Backups}
+Regular backups should be made of all critical data. The following strategy is
+presented as a guideline which should be revised by the steerng group and ICT
+staff.
+
+User's home directories will be backed up incrementally overnight to the second
+site. Rsync contains adequate options to ensure that this is done using minimal
+network bandwidth while maintaining correct meta-data.
+
+Critical configuration files, logs, departmental documentation and other
+electronic documents identified by the University will also be backed up to the
+second site; preferably more often than once per day especially for documents
+which are likely to change on a regular basis (e.g. system log files). Provision
+should also be made for these to be backed up in a third location entirely
+off-site. Many companies are now offering cloud solutions for exactly this
+situation although I believe we may be able to arrange a mutually beneficial
+exchange of backups with another University/institution.
 
 \section{Summary}
 
@@ -282,6 +337,8 @@ located out of sight (though not inaccessible).
 \bibitem{smoothwall} {\em http://www.smoothwall.org/}
 \bibitem{exim} {\em http://www.securityspace.com/s\_survey/data/man.201007/mxsurvey.html}
 \bibitem{nginx} {\em http://trends.builtwith.com/Web-Server/nginx}
+\bibitem{bind} {\em http://en.wikipedia.org/wiki/BIND}
+\bibitem{ldap} {\em http://en.wikipedia.org/wiki/Lightweight\_Directory\_Access\_Protocol}
 
 \end{thebibliography}
 
