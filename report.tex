@@ -273,7 +273,66 @@ will be provided with a home directory on the main filestore). It should then be
 possible to use LDAP as the main authentication protocol across the network.
 
 \section{Business Continuity}
-% What are the critical functions?
+The risks and mitigation strategies outlined below are intended to be a guide
+only. Further discussion and review should be carried out by the steering group
+(particularly with reference to specifying \emph{exactly} which facilities and
+services are considered critical to the business continuity of the University.
+
+\subsection{Risk Analysis}
+\subsubsection{Catastrophic Server Room Failure}
+In the event of all (or most) systems becoming unavailable in the server room
+(for example as the result of fire), critical applications (identified by the
+steering group) will be provided by the backup application server on the second
+site. Network storage will be provided by the backup storage devices on the
+second site although this will be considered a degraded service and only users
+with business critical needs (as identified by the steering group) will be
+allowed access. Naming and directory services will be provided by the secondary
+DNS server which will also be required to handle the activities once performed
+by the dedicated firewall. This too will be considered a degraded service. It is
+assumed that the public website of the University is considered business
+critical and as such will be served by the secondary web server.
+
+\subsubsection{Second Site Failure}
+In the event of the second site's ICT facilities being compromised, services
+provided by equipment on the second site should fall-back to using the primary
+systems available from the main server room. Directory and naming services will
+be considered a degraded service until such time as the secondary DNS server can
+be reinstated. Similarly, the ability to backup data to the second site will be
+unavailable. Efforts should be made to duplicate the backups available from the
+server room as a precautionary measure.
+
+\subsubsection{Loss of Inter-Site Communications}
+If the connection between sites is lost, any business critical tasks which
+depend heavily on services provided by the ICT department should be temporarily
+re-located to the main campus and repairative action be taken immediately.
+
+\subsubsection{Loss of Internet Communications}
+If either site experiences a loss of connectivity, it should route all external
+bound traffic through the other site. Based on the location of the University
+and the author's own personal experience, this situation is considered likely
+and adequate attention should be paid by the ICT group to ensure that this
+situation is dealt with as autonomously and seemlessly as possible.
+
+\subsubsection{Network Security Breach}
+In the event of a possible network security breach, the affected machines should
+be brought offline as soon as possible whilst maintaining business continuity.
+For services which are duplicated (in whole or in part) on the second site, the
+secondary hardware and systems may be used with little to no interruption to
+business continuity. If there is no backup/duplicate service available, other
+hardware should be provisioned at the discretion of the Head of ICT and brought
+online from backups as soon as possible. Care should be taken to ensure that any
+backups used to restore offline systems be absolutely free from the
+errors/concerns which caused the system to be taken offline originally.
+
+It is possible (or even likely) that such a security breach may affect many if
+not all of the systems on a single campus or even both of them. If this is the
+case, web services should be moved to an external provider temporarily whilst a
+full examination and rebuild of the system takes place. Planning for this sort
+of eventuality is no trivial undertaking and should be discussed at length by
+the steering group and reviewed regularly by the ICT group to ensure that
+business critical services are (as far as possible) unaffected whilst still
+ensuring that any concerns about the security of the failed system are not
+carried over to replacement systems.
 
 \section{Ongoing Management}
 \label{sec:manage}
