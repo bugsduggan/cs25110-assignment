@@ -5,7 +5,6 @@
 \setlength{\oddsidemargin}{0in} \setlength{\evensidemargin}{0in}
 \setlength{\textwidth}{6.2in}
 \setlength{\topmargin}{-0.3in} \setlength{\textheight}{9.8in}
-\setlength{\parskip}{0.3in}
 
 \title{CS25110 - Scenario Analysis Report}
 \author{Tom Leaman (thl5)}
@@ -126,7 +125,17 @@ group.
 \subsection{Storage Hardware}
 % TODO
 
-% Second site?
+\subsection{Second Site Hardware}
+The second site (without the dedicated server room) will require a small,
+lockable rack to be located somewhere out of the way whilst still accessible.
+It is important to consider the placement of this rack carefully with care being
+paid to the temperature and fire safety of the equipment; although this will be
+left as a decision for the steering group.
+
+This rack will contain a network switch similar to those specified above (this
+will be connected to the Server Room's Firewall machine) and 1 further Dell
+PowerEdge R320 to be used as described below (see \ref{sec:secsite}). It will
+also require some form of hard-disk storage. % TODO
 
 \section{Software}
 \subsection{IT \& Services Software}
@@ -170,11 +179,17 @@ There is a client application available to access the storage but since the
 device uses standard network file storage protocols, this should not be
 necessary (and is not available for Debian systems at the time of writing).
 
+\subsubsection{Second Site Server Software}
+\label{sec:secsite}
+The extra server on the second site will be used primarily to back-up critical
+data from the first site. As such, it will only require rsync to be installed
+(in addition to the utilities provided by Debian as standard).
+
 \subsubsection{Webserver}
 One server will be given over to providing both the external website and an
 internal intranet. Nginx will be installed as the webserver. Nginx has been
-growing in popularity since its inception \cite{nginx}. It is open-source and considerable
-less memory-intensive than Apache.
+growing in popularity since its inception \cite{nginx}. It is open-source and
+considerably less memory-intensive than Apache.
 
 \subsection{User Software}
 All student and staff workstations will be installed with Windows 7. I Believe
@@ -192,8 +207,55 @@ and does not require licenses to be purchased.
 
 \section{Security}
 \label{sec:security}
-% Software audit
-% Regular maintenance
+A policy of seperation of concerns (that is, logically seperate systems being
+kept as physically seperate as possible) should be the first consideration
+toward security in virtually all areas of the ICT design.
+
+The steering group should also put in place a regular check of the security
+systems in place as part of the regular maintenance schedule as mentioned below
+(see \ref{sec:manage}).
+
+\subsection{Network Security}
+Network services should, where possible, be limited to only those devices or
+users which require access. For example, The Point of Sale systems will only
+require access to particular applications provided by the application servers
+and as such should run on a seperate VLAN. This means if any of the PoS
+machines are compromised, the scope for damage (at least theoretically) is
+limited to that sub-system of the overall network.
+
+Furthermore, all devices wishing to access the network will be required to
+register a MAC address. While it is possible to spoof MAC addresses, this adds
+an extra hurdle for any potential attacker to jump.
+
+\subsection{Application Security}
+It is recommended that the steering group spend time putting together a document
+outlining what the University considers to be important factors in ensuring
+applications are safe, secure and stable enough to be deployed within the ICT
+infrastructure. This should include both Software as a Service (i.e. that which
+is installed on the application server and accessed remotely) \emph{and} user
+software installed on individual work-stations. This document would then form
+the basis of a Software Audit procedure to be followed when procuring new
+software.
+
+It is recommended that this procedure also be followed retro-actively for
+software outlined in this document. This is not just a point of sanity, it is
+intended that the results of the audits be kept on record for reference.
+
+\subsection{Physical Security}
+All workstations should be physically secured by means of a metal cable lock. It
+is important to ensure that the end of the lock not secured to the machine is
+attached to something large and heavy (all too often this step is skipped,
+entirely negating the purpose of the excercise!).
+
+The server room itself must be kept locked at all times and it is recommended
+that some form of electronic access lock be provided which allows the monitoring
+of individual's movements. In the event of a problem, it is important to know
+who has accessed the room and when.
+
+Any critical infrastructure located outside of the main server room should not
+be accessible to anyone who does not require access. To this end it is
+recommended that lockable (and preferable fire-proof) boxes be purchased and
+located out of sight (though not inaccessible).
 
 \section{Naming \& Directory Services}
 
@@ -201,6 +263,7 @@ and does not require licenses to be purchased.
 % What are the critical functions?
 
 \section{Ongoing Management}
+\label{sec:manage}
 % Logs
 % Maintenance schedule
 % Backups
