@@ -16,6 +16,7 @@
 \newpage
 
 \section{Introduction}
+% TODO
 % 2000 Students, 50 Academic Staff, 50 Graduate/research, 10 Admin
 
 \section{Server Room}
@@ -24,22 +25,21 @@ The room designated to be the server room will require enough space to house all
 of the equipment with enough space available above it for adequate ventilation
 and access to any cables which may be run along the ceiling.
 
-There will be 3 42U server racks in the centre of the room allowing full access
+There will be three 42U server racks in the centre of the room allowing full access
 to both the front and the back of the cabinet. It is imperative that these be
 grounded correctly so that any electrical anomalies do not present a threat to
 human health. These will provide adequate space for all the equipment specified
-in this document in addition to space for future requirements.
+in this document in addition to plenty of space for future requirements.
+
+The server room should be located, as far as possible, out of the way of water
+and sewage services and should be accessible without climbing/descending any
+staircases (lift access is acceptable). It should also be noted that it is
+likely to be quite a noisy room and should be located away from areas that may
+suffer as a result of loud, continuous noise unless it is to be sound-proofed.
 
 \subsection{Service Provision Requirements}
-Power will be provided to the server room by way of a big grey box on the wall.
-% TODO
-This will be distributed to the hardware by way of rack-attachable power strips
-with monitoring capabilities (such as those provided by Geist).
-
-This power will be backed-up by an Uninterruptable Power Supply. % TODO
-
-The server room will be connected to the internet (and the other campus) by
-means of Fibre Optic connections such as those offered by Creative Telecoms.
+% TODO Power
+% TODO Network
 
 \subsection{Other needs}
 Server cooling will be provided by 3 Airedale OnRak units. These will dissipate
@@ -102,46 +102,70 @@ It is possible that hardware be delivered late or even damaged. Records of
 disputes/discontinuity may be dealt with as swiftly as possible.
 
 \section{Hardware}
+\subsection{Main Campus Server Room}
+% TODO hard disks
+The main campus server room will contain one network switch to handle external
+traffic (internet and inter-site) and two further switches to distribute network
+connectivity inside the server room and to the rest of the building.
 
-\subsection{Server Hardware}
+There will also be seven individual servers providing the following functions:
+\begin{itemize}
+\item{Firewall server}
+\item{Application server}
+\item{Web server}
+\item{E-mail server}
+\item{Print server}
+\item{Primary DNS server}
+\item{Primary storage control server}
+\end{itemize}
+It is recommended that the exact specification of these servers be decided upon
+after further requirements gathering an analysis by the steering group.
+Consideration should be made regarding how much processing power each requires.
+The most processor intensive services are likely to be provided by the
+application server, the storage controller and the web server. The print and
+e-mail servers are likely to need considerably less power.
 
-There will be 2 HP ProLiant DL320 G6 application servers. One of them is to be
-kept as a back-up/testing server.
+In addition to this, there should be a workstation available in the server room
+for system administrators to use during maintenance and operation. It is assumed
+that any reasonable desktop computer will be acceptable and that some flavour of
+Linux will be installed (this is such a matter of taste that it should be
+decided upon by the staff who will be required to make use of it in their daily
+tasks). Furthermore, provision should be made for a monitor and keyboard to be
+attached to any of the servers in the racks for easy administration. Rack
+mountable KVM consoles are available and may be specified by the steering group.
 
-There will also be 6 Dell PowerEdge R320 rack servers which will provide the
-firewall, E-mail, print and web services. One of these will be the test web
-server and one will be a back-up/spare.
+\subsection{Second Campus Hardware}
+% TODO hard disks
+The second campus will house one further 42U rack. Attention should be paid to
+its placement with regard to cooling and fire safety. It should be located out
+of the way but not inaccessible. This rack will contain a backup application
+server, a secondary storage control server, a secondary DNS server and a
+backup/testing web server. In addition to these, it will require at least one
+network switch to connect to the internet and the main campus server room.
 
-\subsection{Network Hardware}
+\subsection{User-facing Hardware}
+Users on either campus should be able to connect to the network wirelessly. This
+will require the provision of wireless access points through both sites. The
+specification and placement of these should be decided upon by the steering
+group after a comprehensive site survey.
 
-The server room itself will require 2 ethernet switches such as those
-provided by Cisco, one to provide connectivity to the servers (and any
-peripheral Ethernet devices) and one to connect to the rest of the campus.
+Computer rooms, teaching rooms and offices will require workstations for the use
+of staff/students/visitors. Virtually any modern desktop hardware should suffice
+although it should be noted that the internal hard drive will only be required
+to hold the operating system as all data storage will be performed over the
+network.
 
-Further switches will be required to access areas further away from the server
-room. The location and quantity of these is to be specified by the steering
-group.
-
-\subsection{Storage Hardware}
-% TODO
-
-\subsection{Second Site Hardware}
-The second site (without the dedicated server room) will require a small,
-lockable rack to be located somewhere out of the way whilst still accessible.
-It is important to consider the placement of this rack carefully with care being
-paid to the temperature and fire safety of the equipment; although this will be
-left as a decision for the steering group.
-
-This rack will contain a network switch similar to those specified above (this
-will be connected to the Server Room's Firewall machine) and 1 further Dell
-PowerEdge R320 to be used as described below (see \ref{sec:secsite}). It will
-also require some form of hard-disk storage. % TODO
+It is possible that research students or other academic staff require particular
+pieces of hardware to be acquired. In this case, a request should be made to the
+ICT department for evaluation and processing but these requests are left
+entirely at the discretion of the Head of ICT.
 
 \section{Software}
 \subsection{IT \& Services Software}
-All of the servers (with the exception of the firewall and network storage covered below) will be installed with the most current version of Debian. I
-believe this to be one of the most well-established and supported server OS
-available (and it's free).
+All of the servers (with the exception of the firewall and network storage
+covered below) will be installed with Debian Squeeze. This is an open-source
+Linux distribution used on production servers worldwide\cite{debian} and is
+very well supported.
 
 \subsubsection{Application Servers}
 The application server will be used to provide software as a service to the
@@ -179,11 +203,8 @@ There is a client application available to access the storage but since the
 device uses standard network file storage protocols, this should not be
 necessary (and is not available for Debian systems at the time of writing).
 
-\subsubsection{Second Site Server Software}
-\label{sec:secsite}
-The extra server on the second site will be used primarily to back-up critical
-data from the first site. As such, it will only require rsync to be installed
-(in addition to the utilities provided by Debian as standard).
+\subsubsection{Naming \& Directory}
+See \ref{sec:nandd}
 
 \subsubsection{Webserver}
 One server will be given over to providing both the external website and an
@@ -258,6 +279,7 @@ recommended that lockable (and preferable fire-proof) boxes be purchased and
 located out of sight (though not inaccessible).
 
 \section{Naming \& Directory Services}
+\label{sec:nandd}
 One of the server at each site will be used exclusively as the authoritative name server for
 the University's domain(s), the primary controller being located in the server
 room and the secondary server on the second site. Debian will be installed as the Operating System
@@ -384,6 +406,7 @@ situation although I believe we may be able to arrange a mutually beneficial
 exchange of backups with another University/institution.
 
 \section{Summary}
+% TODO
 
 \begin{thebibliography}{1}
 
@@ -392,6 +415,7 @@ exchange of backups with another University/institution.
   http://www.creative-telecoms.co.uk/products/item/data-connections-fibre-optic-adsl-ethernet-sdsl}
 \bibitem{fire} {\em
   http://www.techrepublic.com/blog/security/the-mystical-world-of-data-center-fire-suppression/4113}
+\bibitem{debian} {\em http://www.debian.org/users/}
 \bibitem{bb} {\em http://en.wikipedia.org/wiki/Learning\_management\_system}
 \bibitem{smoothwall} {\em http://www.smoothwall.org/}
 \bibitem{exim} {\em http://www.securityspace.com/s\_survey/data/man.201007/mxsurvey.html}
