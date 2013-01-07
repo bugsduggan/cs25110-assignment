@@ -24,7 +24,10 @@ administrative staff.
 Mid Wales University consists of two campuses in Newton and Caersws. One of
 these is assumed to provide office facilities for the majority of the
 administrative activities and shall be the location of the server room
-(henceforth considered to be the main campus).
+(henceforth considered to be the main campus). There will also be a second
+collection of servers on the second site providing redundancy for the main
+server room. The two sites will be connected by a fiber optic link discussed in
+section \ref{sec:servicepro}.
 
 It is assumed that the University specialises in teaching Arts \& Media subjects
 and, as such, has no subject-specific specialist ICT requirements.
@@ -32,7 +35,7 @@ and, as such, has no subject-specific specialist ICT requirements.
 \section{Server Room}
 \subsection{Physical Requirements}
 The room designated to be the server room will require enough space to house all
-of the equipment with enough space available above it for adequate ventilation
+of the equipment with around 3ft available above it for adequate ventilation
 and access to any cables which may be run along the ceiling.
 
 There will be three 42U server racks in the centre of the room allowing full access
@@ -53,6 +56,7 @@ There will also need to be one rack located on the second site (see
 \ref{sec:secrack}).
 
 \subsection{Service Provision Requirements}
+\label{sec:servicepro}
 It is recommended that a clean and separate power supply be provided both to the
 server room and, if possible, the second site's equipment rack. It is important
 that other building services' fluctuating power requirements do not affect the
@@ -117,7 +121,7 @@ over-spend.
 \subsubsection{Late Delivery of Project Goals}
 Each phase of the project should have an established goal and time frame within
 which to be achieved. This should be closely monitored and regulated by the
-Steering Group during a weekly status report and \emph{any} concerns should be raised as soon as possible so
+Steering Group by means of a weekly status report and \emph{any} concerns should be raised as soon as possible so
 that mitigating action may be decided upon and undertaken by all relevant
 parties.
 
@@ -139,6 +143,7 @@ The main campus server room will contain one network switch to handle external
 traffic (internet and inter-site) and two further switches to distribute network
 connectivity inside the server room and to the rest of the building.
 
+\clearpage
 There will also be seven individual servers providing the following functions:
 \begin{itemize}
 \item{Firewall server}
@@ -234,7 +239,7 @@ available from Blackboard.
 One of the servers will operate as a dedicated firewall and gateway. It will be
 installed with Smoothwall, a dedicated firewall distribution of Linux. It is
 open-source and is well documented through its online documentation and
-manuals.
+manuals \cite{smoothwall}.
 
 \subsubsection{E-mail}
 One of the servers will function as a dedicated e-mail server. It will be
@@ -255,7 +260,7 @@ Samba is very well established and well documented software which is frequently
 used to provide Windows and Linux home directories across the network.
 
 \subsubsection{Naming \& Directory}
-See \ref{sec:nandd}
+See section \ref{sec:nandd}
 
 \subsubsection{Webserver}
 One server will be given over to providing both the external website and an
@@ -284,7 +289,7 @@ kept as physically separate as possible) should be the first consideration
 toward security in virtually all areas of the ICT design.
 
 The Steering Group should also put in place a regular check of the security
-systems in place as part of the regular maintenance schedule as mentioned below
+systems as part of the regular maintenance schedule as mentioned below
 (see \ref{sec:manage}).
 
 \subsection{Network Security}
@@ -322,7 +327,7 @@ entirely negating the purpose of the exercise!).
 The server room itself must be kept locked at all times and it is recommended
 that some form of electronic access lock be provided which allows the monitoring
 of individual's movements. In the event of a problem, it is important to know
-who has accessed the room and when \ref{sec:needs}.
+who has accessed the room and when (see \ref{sec:needs}).
 
 Any critical infrastructure located outside of the main server room should not
 be accessible to anyone who does not require access. To this end it is
@@ -332,6 +337,7 @@ located out of sight (though not inaccessible).
 The second site rack should be locked at all times and should be stored in a
 non-public area for increased security.
 
+\clearpage
 \section{Naming \& Directory Services}
 \label{sec:nandd}
 One of the servers at each site will be used exclusively as the authoritative name server for
@@ -366,7 +372,8 @@ allowed access. Naming and directory services will be provided by the secondary
 DNS server which will also be required to handle the activities once performed
 by the dedicated firewall. This too will be considered a degraded service. It is
 assumed that the public website of the University is considered business
-critical and as such will be served by the secondary web server.
+critical and as such will be served by the secondary web server in this
+eventuality.
 
 \subsubsection{Second Site Failure}
 In the event of the second site's ICT facilities being compromised, services
@@ -445,7 +452,7 @@ may be rehearsed).
 
 \subsection{Backups}
 Regular backups should be made of all critical data. The following strategy is
-presented as a guideline which should be revised by the steerng group and ICT
+presented as a guideline which should be revised by the Steering Group and ICT
 staff.
 
 User's home directories will be backed up incrementally overnight to the second
@@ -461,6 +468,7 @@ off-site. Many companies are now offering cloud solutions for exactly this
 situation although I believe we may be able to arrange a mutually beneficial
 exchange of backups with another University / institution.
 
+\clearpage
 \section{Summary}
 In conclusion, the University will require a secure server room on the main
 campus which will provide the primary hardware for all systems across both
@@ -474,16 +482,20 @@ handed to the ICT department for continuous management.
 Business continuity objectives will be defined and documented clearly with
 well-rehearsed operational procedures for dealing with critical issues.
 
+I believe that the infrastructure and strategies outlined in this document will
+provide a comprehensive and resilient solution to the business ICT requirements
+of the University at a reasonable level of cost.
+
 \subsection{Estimated Costs}
 \begin{itemize}
-\item{{\bf Server Room Infrastructure} - £3,600}
-\item{{\bf Server Room Services} - £4,000}
-\item{{\bf Server Room Hardware} - £6,500}
-\item{{\bf Second Campus Infrastructure} - £1,200}
-\item{{\bf Second Campus Hardware} - £4,500}
-\item{{\bf Network Provisioning (e.g. site-wide ethernet)} - £1,500}
-\item{{\bf User Workstations} - £100,000}
-\item{{\bf Software Licenses} - £75,000}
+\item{{\bf Server Room Infrastructure} - \textsterling3,600}
+\item{{\bf Server Room Services} - £\textsterling4,000}
+\item{{\bf Server Room Hardware} - £\textsterling6,500}
+\item{{\bf Second Campus Infrastructure} - \textsterling1,200}
+\item{{\bf Second Campus Hardware} - \textsterling4,500}
+\item{{\bf Network Provisioning} (e.g. site-wide ethernet) - \textsterling1,500}
+\item{{\bf User Workstations} - \textsterling100,000}
+\item{{\bf Software Licenses} - \textsterling75,000}
 \end{itemize}
 {\bf Total: £196,300}
 
