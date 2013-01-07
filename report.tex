@@ -16,8 +16,18 @@
 \newpage
 
 \section{Introduction}
-% TODO
-% 2000 Students, 50 Academic Staff, 50 Graduate/research, 10 Admin
+This document provides an overview of the ICT systems inteded to be provided for
+Mid Wales University. The University has around 2000 students and it is assumed
+to have around 50 academic staff, 50 post-graduate / research staff and 10
+administrative staff.
+
+Mid Wales University consists of two campuses in Newton and Caersws. One of
+these is assumed to provide office facilities for the majority of the
+administrative activities and shall be the location of the server room
+(henceforth considered to be the main campus).
+
+It is assumed that the University specialises in teaching Arts \& Media subjects
+and, as such, has no subject-specific specialist ICT requirements.
 
 \section{Server Room}
 \subsection{Physical Requirements}
@@ -32,7 +42,7 @@ human health. These will provide adequate space for all the equipment specified
 in this document in addition to plenty of space for future requirements.
 
 The server room should be located, as far as possible, out of the way of water
-and sewage services and should be accessible without climbing/descending any
+and sewage services and should be accessible without climbing / descending any
 staircases (lift access is acceptable). It should also be noted that it is
 likely to be quite a noisy room and should be located away from areas that may
 suffer as a result of loud, continuous noise unless it is to be sound-proofed.
@@ -67,7 +77,7 @@ normal operational ranges.
 The server room must be fitted with a fire suppression system. This should use a
 gasseous suppression agent such as CO\textsubscript{2} which will not damage the
 sensitive equipment. This \emph{will}, however require more space to be made
-available to store the suppression agent.
+available to store the suppression agent\cite{fire}.
 
 Physical access to the room must also be kept to only those staff members who
 require access to complete their tasks (and every effort should be made to
@@ -116,10 +126,10 @@ time or to correct specification). Therefore, any such phase should be given
 extra attention by the Steering Group and any specifically identifiable risks
 should be pre-emptively mitigated as far as is possible.
 
-\subsubsection{Incorrect/Late Delivery of Hardware}
+\subsubsection{Incorrect / Late Delivery of Hardware}
 It is possible that hardware be delivered late or even damaged. Records of
 \emph{all} purchases and deliveries must be kept so that any
-disputes/discontinuity may be dealt with as swiftly as possible.
+disputes / discontinuity may be dealt with as swiftly as possible.
 
 \section{Hardware}
 \subsection{Main Campus Server Room}
@@ -167,7 +177,7 @@ The second campus will house one further 42U rack. Attention should be paid to
 its placement with regard to cooling and fire safety. It should be located out
 of the way but not inaccessible. This rack will contain a backup application
 server, a secondary storage control server, a secondary DNS server and a
-backup/testing web server. In addition to these, it will require at least one
+backup / testing web server. In addition to these, it will require at least one
 network switch to connect to the internet and the main campus server room. There
 will also be a RAID disk array identical to that on the main campus.
 
@@ -178,7 +188,7 @@ specification and placement of these should be decided upon by the steering
 group after a comprehensive site survey.
 
 Computer rooms, teaching rooms and offices will require workstations for the use
-of staff/students/visitors. Virtually any modern desktop hardware should suffice
+of staff / students / visitors. Virtually any modern desktop hardware should suffice
 although it should be noted that the internal hard drive will only be required
 to hold the operating system as all data storage will be performed over the
 network.
@@ -211,7 +221,7 @@ requirements gathering activities outlined in section \ref{sec:projman}
 
 Intacct Financial and Management Accounting software will be installed to
 provide payroll, PoS, budgeting and accounting services to administrative staff
-and public cafe/bar areas.
+and public cafe / bar areas.
 
 A Learning Management System will be provided by Blackboard. Blackboard has a
 large market share and industry backing \cite{bb} and although open-source
@@ -332,7 +342,7 @@ and MySQL is recommended as the database controller for the records being
 stored.
 
 In addition to this, LDAP will be used to provide directory services. This will
-also be used to store user data for all staff/student accounts (accounts which
+also be used to store user data for all staff / student accounts (accounts which
 will be provided with a home directory on the main filestore). It should then be
 possible to use LDAP as the main authentication protocol across the network.
 
@@ -382,11 +392,11 @@ In the event of a possible network security breach, the affected machines should
 be brought offline as soon as possible whilst maintaining business continuity.
 For services which are duplicated (in whole or in part) on the second site, the
 secondary hardware and systems may be used with little to no interruption to
-business continuity. If there is no backup/duplicate service available, other
+business continuity. If there is no backup / duplicate service available, other
 hardware should be provisioned at the discretion of the Head of ICT and brought
 online from backups as soon as possible. Care should be taken to ensure that any
 backups used to restore offline systems be absolutely free from the
-errors/concerns which caused the system to be taken offline originally.
+errors / concerns which caused the system to be taken offline originally.
 
 It is possible (or even likely) that such a security breach may affect many if
 not all of the systems on a single campus or even both of them. If this is the
@@ -414,7 +424,7 @@ responsible. Regular maintenance tasks may include (but are not limited to)
 updating system software, checking hard disk integrity and replacing batteries
 in UPSs.
 
-Logs of all changes/additions to the critical infrastructure should be produced
+Logs of all changes / additions to the critical infrastructure should be produced
 and kept up to date. These should be stored (along with other critical
 documents) in the server room (preferably in a fire-proof container). This
 ensures, should problems occur, that they can be traced back to their origin and
@@ -447,16 +457,36 @@ which are likely to change on a regular basis (e.g. system log files). Provision
 should also be made for these to be backed up in a third location entirely
 off-site. Many companies are now offering cloud solutions for exactly this
 situation although I believe we may be able to arrange a mutually beneficial
-exchange of backups with another University/institution.
+exchange of backups with another University / institution.
 
 \section{Summary}
-% TODO
+In conclusion, the University will require a secure server room on the main
+campus which will provide the primary hardware for all systems across both
+sites. It will also be necessary to house some secondary / backup hardware
+securely on the second campus.
+
+Project Management will be overseen by a Steering Group responsible for the
+final specification and delivery of the services required. Control will then be
+handed to the ICT department for continuous management.
+
+Business continuity objectives will be defined and documented clearly with
+well-rehearsed operational procedures for dealing with critical issues.
+
+\subsection{Estimated Costs}
+\begin{itemize}
+\item{{\bf Server Room Infrastructure} - £3,600}
+\item{{\bf Server Room Services} - £4,000}
+\item{{\bf Server Room Hardware} - £6,500}
+\item{{\bf Second Campus Infrastructure} - £1,200}
+\item{{\bf Second Campus Hardware} - £4,500}
+\item{{\bf Network Provisioning (e.g. site-wide ethernet)} - £1,500}
+\item{{\bf User Workstations} - £100,000}
+\item{{\bf Software Licenses} - £75,000}
+\end{itemize}
+{\bf Total: £196,300}
 
 \begin{thebibliography}{1}
 
-\bibitem{rack} {\em http://www.iblparts.co.uk/forsale/5B933FE8.html}
-\bibitem{fibre} {\em
-  http://www.creative-telecoms.co.uk/products/item/data-connections-fibre-optic-adsl-ethernet-sdsl}
 \bibitem{fire} {\em
   http://www.techrepublic.com/blog/security/the-mystical-world-of-data-center-fire-suppression/4113}
 \bibitem{debian} {\em http://www.debian.org/users/}
