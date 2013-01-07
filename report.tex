@@ -37,10 +37,13 @@ staircases (lift access is acceptable). It should also be noted that it is
 likely to be quite a noisy room and should be located away from areas that may
 suffer as a result of loud, continuous noise unless it is to be sound-proofed.
 
+There will also need to be one rack located on the second site (see
+\ref{sec:secrack}).
+
 \subsection{Service Provision Requirements}
 It is recommended that a clean and separate power supply be provided both to the
 server room and, if possible, the second site's equipment rack. It is important
-that other building services' fluctuating power requirements not affect the
+that other building services' fluctuating power requirements do not affect the
 supply to either campus' equipment. Furthermore it is recommended that
 Uninterruptable Power Supplies be provided for each rack. Many of these also
 provide facilities to monitor the power consumption of individual devices (such
@@ -54,10 +57,11 @@ means of another fibre optic connection to allow services provided by the main
 campus to be accessed with minimal latency from the second campus.
 
 \subsection{Other needs}
-Server cooling will be provided by 3 Airedale OnRak units. These will dissipate
+\label{sec:needs}
+Server cooling will be provided by Airedale OnRak units (one per rack). These will dissipate
 the heat generated and will fit into the back of each of the server racks. It is
-recommended that some form of temperature monitor also be installed with some
-way of indicating to relevant personel if the temperature falls outside of
+recommended that a temperature monitor also be installed which is able to
+alert relevant personel if the temperature falls outside of
 normal operational ranges.
 
 The server room must be fitted with a fire suppression system. This should use a
@@ -68,17 +72,18 @@ available to store the suppression agent.
 Physical access to the room must also be kept to only those staff members who
 require access to complete their tasks (and every effort should be made to
 enable them to work without access to the server room). Access will also be
-monitored through the key card access system (see \ref{sec:security}).
+monitored either through a key card access system (see \ref{sec:security}) or a
+physical visitor's log.
 
 \section{Project Management}
 \label{sec:projman}
-The project will be overseen by a steering group chaired by a representative of
-the University (henceforth known as the Project Client). This steering group
+The project will be overseen by a Steering Group chaired by a representative of
+the University (henceforth known as the Project Client). This Steering Group
 will contain a representative from all major departments of the University, a
 Project Manager and the head of ICT Services.
 
 The group will be responsible for the specification of the services to be
-provided along with the smooth running and continuous management of the project
+provided along with the smooth running and continuous day-to-day management of the project
 (as overseen by the Project Manager).
 
 \subsection{Risk Analysis}
@@ -88,11 +93,11 @@ have been identified.
 \subsubsection{Incorrect provision of hardware}
 It is possible that the hardware outlined in this and future documents is
 incompatible or unfit for purpose. If this is the case, new devices will be
-specified and decided upon by the steering group.
+specified and decided upon by the Steering Group.
 
 \subsubsection{Overrunning of Budget}
 While every effort has been and will continue to be made to ensure that all
-financial forecasts are accurate, unforseen expenses my be incurred. As such, it
+financial forecasts are accurate, unforseen expenses may be incurred. As such, it
 is recommended that a contingency of 10\% of the overall project cost be
 included during planning which may be used to mitigate the risks of financial
 over-spend.
@@ -100,7 +105,7 @@ over-spend.
 \subsubsection{Late Delivery of Project Goals}
 Each phase of the project should have an established goal and time frame within
 which to be achieved. This should be closely monitored and regulated by the
-steering group and \emph{any} concerns should be raised as soon as possible so
+Steering Group during a weekly status report and \emph{any} concerns should be raised as soon as possible so
 that mitigating action may be decided upon and undertaken by all relevant
 parties.
 
@@ -108,7 +113,7 @@ parties.
 Any phases of the project requiring external contractors are subject to further
 risks as a result of the work being undertaken (e.g. work not being finished on
 time or to correct specification). Therefore, any such phase should be given
-extra attention by the steering group and any specifically identifiable risks
+extra attention by the Steering Group and any specifically identifiable risks
 should be pre-emptively mitigated as far as is possible.
 
 \subsubsection{Incorrect/Late Delivery of Hardware}
@@ -133,7 +138,7 @@ There will also be seven individual servers providing the following functions:
 \item{Primary storage control server}
 \end{itemize}
 It is recommended that the exact specification of these servers be decided upon
-after further requirements gathering an analysis by the steering group.
+after further requirements gathering and analysis by the Steering Group.
 Consideration should be made regarding how much processing power each requires.
 The most processor intensive services are likely to be provided by the
 application server, the storage controller and the web server. The print and
@@ -146,17 +151,18 @@ Linux will be installed (this is such a matter of taste that it should be
 decided upon by the staff who will be required to make use of it in their daily
 tasks). Furthermore, provision should be made for a monitor and keyboard to be
 attached to any of the servers in the racks for easy administration. Rack
-mountable KVM consoles are available and may be specified by the steering group.
+mountable KVM consoles are available and may be specified by the Steering Group.
 
 The server room will also contain a RAID disk array with at least 6TB of useable
 space. This will be used to provide user's home directories and central backups
 of University documents, databases etc. Again, the exact make and model will be
-left to the steering group but it is recommended that these \emph{not} be
+left to the Steering Group but it is recommended that these \emph{not} be
 solid-state drives as these tend to fail with very little warning (even with
 proper backups in place, the author feels that people administering the system
 like to know when critical pieces of infrastructure are about to fail).
 
 \subsection{Second Campus Hardware}
+\label{sec:secrack}
 The second campus will house one further 42U rack. Attention should be paid to
 its placement with regard to cooling and fire safety. It should be located out
 of the way but not inaccessible. This rack will contain a backup application
@@ -184,7 +190,7 @@ entirely at the discretion of the Head of ICT.
 
 It is expected that both campuses will require a number of peripheral devices
 (printers, scanners etc.) the location and specification of which will be
-decided upon by the steering group. Consideration should be made, however to
+decided upon by the Steering Group. Consideration should be made, however to
 ensure that they remain compatible with the rest of the system.
 
 It is assumed that telephony requirements are being provided by a separate part
@@ -196,7 +202,7 @@ in this document.
 All of the servers (with the exception of the firewall and network storage
 covered below) will be installed with Debian Squeeze. This is an open-source
 Linux distribution used on production servers worldwide\cite{debian} and is
-very well supported.
+very well supported by the community.
 
 \subsubsection{Application Servers}
 The application server will be used to provide software as a service to the
@@ -215,7 +221,7 @@ available from Blackboard.
 \subsubsection{Firewall}
 One of the servers will operate as a dedicated firewall and gateway. It will be
 installed with Smoothwall, a dedicated firewall distribution of Linux. It is
-open-source and fairly well supported through its online documentation and
+open-source and is well documented through its online documentation and
 manuals.
 
 \subsubsection{E-mail}
@@ -228,7 +234,7 @@ supported on Debian platforms\cite{exim}.
 Print services will be handled by CUPS. It is likely that other utilities will
 be required to be installed as part of this system but this will depend on which
 printers are eventually selected and so the final decision will be in the hands
-of the steering group.
+of the Steering Group.
 
 \subsubsection{File Storage}
 The disks will be presented on the network using the CIFS protocol by means of
@@ -246,7 +252,7 @@ growing in popularity since its inception \cite{nginx}. It is open-source and
 considerably less memory-intensive than Apache.
 
 \subsection{User Software}
-All student and staff workstations will be installed with Windows 7. I Believe
+All student and staff workstations will be installed with Windows 7. I believe
 this to be a well understood platform for the average user and it may be
 possible to purchase a support contract from Microsoft.
 
@@ -261,19 +267,19 @@ and does not require licenses to be purchased.
 
 \section{Security}
 \label{sec:security}
-A policy of seperation of concerns (that is, logically seperate systems being
-kept as physically seperate as possible) should be the first consideration
+A policy of separation of concerns (that is, logically separate systems being
+kept as physically separate as possible) should be the first consideration
 toward security in virtually all areas of the ICT design.
 
-The steering group should also put in place a regular check of the security
+The Steering Group should also put in place a regular check of the security
 systems in place as part of the regular maintenance schedule as mentioned below
 (see \ref{sec:manage}).
 
 \subsection{Network Security}
 Network services should, where possible, be limited to only those devices or
-users which require access. For example, The Point of Sale systems will only
+users which require access. For example, the Point of Sale systems will only
 require access to particular applications provided by the application servers
-and as such should run on a seperate VLAN. This means if any of the PoS
+and as such should run on a separate VLAN. This means if any of the PoS
 machines are compromised, the scope for damage (at least theoretically) is
 limited to that sub-system of the overall network.
 
@@ -282,13 +288,13 @@ register a MAC address. While it is possible to spoof MAC addresses, this adds
 an extra hurdle for any potential attacker to jump.
 
 \subsection{Application Security}
-It is recommended that the steering group spend time putting together a document
+It is recommended that the Steering Group spend time putting together a document
 outlining what the University considers to be important factors in ensuring
 applications are safe, secure and stable enough to be deployed within the ICT
 infrastructure. This should include both Software as a Service (i.e. that which
 is installed on the application server and accessed remotely) \emph{and} user
 software installed on individual work-stations. This document would then form
-the basis of a Software Audit procedure to be followed when procuring new
+the basis of a Software Security Audit procedure to be followed when procuring new
 software.
 
 It is recommended that this procedure also be followed retro-actively for
@@ -299,24 +305,27 @@ intended that the results of the audits be kept on record for reference.
 All workstations should be physically secured by means of a metal cable lock. It
 is important to ensure that the end of the lock not secured to the machine is
 attached to something large and heavy (all too often this step is skipped,
-entirely negating the purpose of the excercise!).
+entirely negating the purpose of the exercise!).
 
 The server room itself must be kept locked at all times and it is recommended
 that some form of electronic access lock be provided which allows the monitoring
 of individual's movements. In the event of a problem, it is important to know
-who has accessed the room and when.
+who has accessed the room and when \ref{sec:needs}.
 
 Any critical infrastructure located outside of the main server room should not
 be accessible to anyone who does not require access. To this end it is
 recommended that lockable (and preferable fire-proof) boxes be purchased and
 located out of sight (though not inaccessible).
 
+The second site rack should be locked at all times and should be stored in a
+non-public area for increased security.
+
 \section{Naming \& Directory Services}
 \label{sec:nandd}
-One of the server at each site will be used exclusively as the authoritative name server for
+One of the servers at each site will be used exclusively as the authoritative name server for
 the University's domain(s), the primary controller being located in the server
 room and the secondary server on the second site. Debian will be installed as the Operating System
-(this is mostly for consistency with the other servers, if the steering group
+(this is mostly for consistency with the other servers; if the Steering Group
 can justify a different OS, it should be possible to switch with little
 adjustment). BIND (v9) will be used to provide DNS services across the network
 and MySQL is recommended as the database controller for the records being
@@ -329,18 +338,18 @@ possible to use LDAP as the main authentication protocol across the network.
 
 \section{Business Continuity}
 The risks and mitigation strategies outlined below are intended to be a guide
-only. Further discussion and review should be carried out by the steering group
+only. Further discussion and review should be carried out by the Steering Group
 (particularly with reference to specifying \emph{exactly} which facilities and
-services are considered critical to the business continuity of the University.
+services are considered critical to the business continuity of the University).
 
 \subsection{Risk Analysis}
 \subsubsection{Catastrophic Server Room Failure}
 In the event of all (or most) systems becoming unavailable in the server room
 (for example as the result of fire), critical applications (identified by the
-steering group) will be provided by the backup application server on the second
+Steering Group) will be provided by the backup application server on the second
 site. Network storage will be provided by the backup storage devices on the
 second site although this will be considered a degraded service and only users
-with business critical needs (as identified by the steering group) will be
+with business critical needs (as identified by the Steering Group) will be
 allowed access. Naming and directory services will be provided by the secondary
 DNS server which will also be required to handle the activities once performed
 by the dedicated firewall. This too will be considered a degraded service. It is
@@ -366,7 +375,7 @@ If either site experiences a loss of connectivity, it should route all external
 bound traffic through the other site. Based on the location of the University
 and the author's own personal experience, this situation is considered likely
 and adequate attention should be paid by the ICT group to ensure that this
-situation is dealt with as autonomously and seemlessly as possible.
+situation is dealt with as automatically and seamlessly as possible.
 
 \subsubsection{Network Security Breach}
 In the event of a possible network security breach, the affected machines should
@@ -384,7 +393,7 @@ not all of the systems on a single campus or even both of them. If this is the
 case, web services should be moved to an external provider temporarily whilst a
 full examination and rebuild of the system takes place. Planning for this sort
 of eventuality is no trivial undertaking and should be discussed at length by
-the steering group and reviewed regularly by the ICT group to ensure that
+the Steering Group and reviewed regularly by the ICT group to ensure that
 business critical services are (as far as possible) unaffected whilst still
 ensuring that any concerns about the security of the failed system are not
 carried over to replacement systems.
@@ -396,7 +405,8 @@ employ one or two system administrators and one ICT strategy adviser. These
 should meet on a regular basis with key staff in each department (that is people
 who understand what is required of the ICT systems within their own department).
 This regular meeting will allow current and future aspects of the system to be
-analysed and maintained without losing focus on the deliverable goals.
+analysed and maintained without losing focus on the deliverable goals of
+day-to-day operations.
 
 In addition to this, a maintenance schedule should be drawn up consisting of the
 task to be accomplished, the time it should take place and the member of staff
@@ -411,12 +421,12 @@ ensures, should problems occur, that they can be traced back to their origin and
 fixed much quicker and with less risk to service.
 
 \subsection{Disaster Recovery}
-Furthermore, the steering group should compile a disaster recovery strategy to
+Furthermore, the Steering Group should compile a disaster recovery strategy to
 be maintained by the ICT committee. This will include strategies for recovery in
 the event of critical system infrastructure failure. For example, if the
 application server crashes, what is the procedure for switching to the back-up
-server, identifying the problem and reaching a solution. These disaster recovery
-strategies should be well understood by those members of the team who will be
+server, identifying the problem and reaching a solution. These operational
+procedures should be well understood by those members of the team who will be
 required to act upon it and as such it is recommended that these procedures be
 rehearsed at regular intervals (much the same way that a fire evacuation plan
 may be rehearsed).
